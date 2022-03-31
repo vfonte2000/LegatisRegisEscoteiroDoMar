@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- saved from url=(0194)https://components.mywebsitebuilder.com/extern/maps-app/embed-place-express.html?q=av.+prof.+arist%C3%B3teles+menezes,+11+-+ponta+da+praia,11035-030,Santos,BR&zoom=14&mapType=roadmap&center=none -->
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Embed Api</title>
+    
+    <style>
+        body {
+            margin: 0;
+        }
+        iframe {
+            display: block;
+            background: transparent;
+            border: none;
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+    <script type="text/javascript">
+        (function () {
+            function parseQueryParams() {
+                var query = window.location.search.substring(1) || '';
+                var queries = query.split('&');
+                var params = {};
+                for (var i = 0; i < queries.length; i++) {
+                    var p = queries[i].split('=');
+                    if (p.length != 2) continue;
+                    params[decodeURIComponent(p[0])] = decodeURIComponent(p[1].replace(/\+/g, " "));
+                }
+                return params;
+            }
+
+            function valueOrDefault(value, defaultValue) {
+                if (value === null || value === undefined) {
+                    return defaultValue;
+                }
+                return value;
+            }
+
+            var params = parseQueryParams();
+            var q = valueOrDefault(params ["q"], "near");
+            var zoom = valueOrDefault(params ["zoom"], 1);
+            var mapType = valueOrDefault(params ["mapType"], "roadmap");
+
+            var html = '<iframe frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAVehY4ucQ0DbNoMqet4YDe-2UPXRLDv5Q&q=' + q + '&zoom=' + zoom +'&maptype=' + mapType + '" allowfullscreen></iframe>';
+
+            document.write(html);
+        }) ();
+    </script></head><body><iframe frameborder="0" src="./place.html" allowfullscreen=""></iframe>
+
+
+
+</body></html>
